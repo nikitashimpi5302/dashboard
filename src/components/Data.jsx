@@ -5,7 +5,7 @@ const Data = () => {
   const [users, setUsers] = useState([]);
   const [userData, setUserData] = useState({});
   const [selectedUser, setSelectedUser] = useState("");
-  const [modalOpen, setModalOpen] = useState(false);
+
   useEffect(() => {
     db.collection("users").onSnapshot((snapshot) => {
       setUsers(
@@ -39,7 +39,7 @@ const Data = () => {
                   <span>{user.id}</span>
                 </div>
                 <span>
-                  {user.data.aadhaar == "" ? "N.A." : user.data.aadhaar}
+                  {user.data.aadhaar === "" ? "N.A." : user.data.aadhaar}
                 </span>
               </div>
             ) : (
@@ -55,7 +55,7 @@ const Data = () => {
                   <span>{user.id}</span>
                 </div>
                 <span>
-                  {user.data.aadhaar == "" ? "N.A." : user.data.aadhaar}
+                  {user.data.aadhaar === "" ? "N.A." : user.data.aadhaar}
                 </span>
               </div>
             )
@@ -136,10 +136,7 @@ const Data = () => {
           <span classname="font-semibold text-xl">UdId : </span>
           <span className="font-thin">{userData.udid}</span>
         </div>{" "}
-        <button
-          onClick={() => setModalOpen(true)}
-          className="mb-3 font-semibold border border-green-500 w-max mx-auto px-3 py-2 rounded-md text-green-500 cursor-pointer"
-        >
+        <button className="mb-3 font-semibold border border-green-500 w-max mx-auto px-3 py-2 rounded-md text-green-500 cursor-pointer">
           View documents
         </button>
       </div>
